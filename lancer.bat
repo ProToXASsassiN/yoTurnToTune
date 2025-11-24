@@ -25,12 +25,15 @@ pip show numpy >nul 2>&1
 if %errorlevel% neq 0 (
     echo Installation des dependances...
     pip install -r requirements.txt
+    REM Verification que l'installation a reussi
+    pip show numpy >nul 2>&1
     if %errorlevel% neq 0 (
         echo.
         echo ERREUR: Impossible d'installer les dependances!
         pause
         exit /b 1
     )
+    echo Dependances installees avec succes!
 ) else (
     echo Dependances OK!
 )
